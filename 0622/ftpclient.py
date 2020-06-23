@@ -4,7 +4,7 @@ import struct
 import  os
 sk = socket.socket()
 sk.connect(('127.0.0.1',8989))
-buffer = 40960
+buffer = 1024
 head = {
     'filepath':'/Users/a10.11.5/Downloads/照花台.mp4',
     'filename':'照花台.mp4',

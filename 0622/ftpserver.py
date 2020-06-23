@@ -1,7 +1,7 @@
 import socket
 import struct
 import json
-buffer = 40960
+buffer = 4096
 sk = socket.socket()
 sk.bind(('127.0.0.1',8989))
 sk.listen()
@@ -15,6 +15,7 @@ json_head = conn.recv(head_len).decode('utf-8')
 
 head = json.loads(json_head)
 filesize = head['filesize']
+
 with open(head['filename'],mode='wb') as f:
     while filesize > 0:
 
@@ -25,6 +26,6 @@ with open(head['filename'],mode='wb') as f:
         else:
             conn.recv(filesize)
             f.write(bytes)
-            break
+            # break
 conn.close()
 sk.close()

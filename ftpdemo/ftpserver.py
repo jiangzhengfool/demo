@@ -7,8 +7,6 @@ buffer = 1024
 def print_percent(i,size):
     percent = int((i) / size * 20)
     i = math.ceil(i/size*100)
-
-
     print('\r%d %%: %s' % (i, '*' * percent), end='', flush=False)
 
 
