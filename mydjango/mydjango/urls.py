@@ -15,14 +15,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from django.shortcuts import HttpResponse
+from django.conf import urls
+from django.shortcuts import render, HttpResponse,redirect
+from django.views.decorators.csrf import csrf_exempt
 
-def login(request):
 
-    return
+from app01 import views
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('login',login)
+    path('index', views.index),
+    path('del', views.dele),
+    path('addclass',views.addclass),
+    path('stu_list',views.get_stu_list),
+    path('add_stu',views.add_stu)
+   # urls(r'^index/', index)
 ]

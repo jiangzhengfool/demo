@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+    </script>
+
+<style>
+    .bgmodel{
+       height: 100%;
+       width: 100%;
+       background-color: #000;
+       opacity: 0.3;
+       z-index:100;
+       position: fixed;
+       left: 0; 
+       right: 0;
+       top: 0;
+       bottom: 0;
+       
+    }
+    .model{
+        height: 25%;
+        width: 25%;
+        top:50%;
+        left: 50%;
+        background-color: #fff;
+        position: fixed;
+        margin-top: -12.5%;
+        margin-left: -12.5%;
+        z-index: 1000;
+
+    }
+   
+   </style>
+   
+</head>
+<body>
+    
+
+    <div>
+        <div>
+            <button id='showmodel' onclick="showmodel()">add</button>
+        </div>
+        <table>
+            {% for class in classlist %}
+            <tr>
+                 <td>{{ class.name }}</td><td><a href="/del?id={{class.id}}">delete</a> </td>
+            </tr>
+            {% endfor %}
+        </table>
+
+    </div>
+   
+
+    <div class ='model hidden' hidden=true>
+        <!-- <form action ='/index' method="post">
+            <input type="text" name="name" >
+
+            <button type="submit">add</button>
+        </form> -->
+        <input type="text" name="name" id='classname'>
+
+        <button type="button" onclick="addclass()">confirm</button>
+    </div>
+    <div class ='bgmodel hidden' hidden=true>
+
+    </div>
+
+
+
+</body>
+</html>
+ <script>
+     function showmodel (){
+        $('.hidden').show()
+     };
+     function addclass (){
+        name = $('#classname').val();
+        console.log(name)
+       
+        $.ajax({
+         url:'/addclass',
+         type:'post',
+         data:{
+             'name':name
+         },
+         success:function(result){
+             location.href='/index'
+            console.log(result);
+         }
+     });
+
+     }
+     
+     
+
+ </script>

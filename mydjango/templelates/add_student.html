@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="/add_stu" method="POST">
+        <input type="text" hidden name ='id' value="{{stu.id}}">
+        <input type="text" name ='name' value="{{ stu.name }}">
+        <select name="clsid" id="">
+            <!-- choose your class -->
+            {% for c in cls_list %}
+            {% if stu.cls_id == c.id %}
+            <option value="{{c.id}}" selected> {{c.name}}  </option>
+            {% else %}
+            <option value="{{c.id}}" > {{c.name}}  </option>
+            {% endif %}
+
+            {% endfor %}
+        </select>
+        <input type="submit" value="add">
+    </form>
+
+</body>
+</html>
+{{  ret }}
