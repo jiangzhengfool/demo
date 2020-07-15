@@ -362,8 +362,26 @@ import re
 # having sum(case when t2.income >=t1.income then 1 else 0 end) >= count(*)/2<
 # and sum(case when t2.income <=t1.income then 1 else 0 end) >= count(*)/2;<br>
 # 第二步 -- 将上下部分集合求得的交集，去重，然后求平均，得到中值<br>select avg(distinct income)<br>from ( select t1.income<br>　　　　from gradutes t1,gradutes t2<br>　　　　group by t1.income<br>　　　　having sum(case when t2.income >= t1.income then 1 else 0) >= count(*)/2<br>　　　　　　and sum (case when t2.incomme <= t1.income then 1 else 0 ) >= count(*)/2) as tmp
-def sum_triangular_numbers(n):
-    # your code here
-    for i in range(1,10):
-        pass
-    return sum((1 + i) * i / 2 for i in range(1,n))
+# def sum_triangular_numbers(n):
+#     # your code here
+#     for i in range(1,10):
+#         pass
+#     return sum((1 + i) * i / 2 for i in range(1,n))
+# def countOnes(left=12, right=29):
+#
+#     return   sum([(str(bin(i))).count('1') for i in range(left,right+1)])
+#
+
+
+def countOnes(left=12, right=29):
+    count = 0
+    for i in range(left,right+1):
+        while i > 0:
+            if i % 2 ==1:
+                count +=1
+
+            i //=2
+    return count
+print(countOnes())
+
+
