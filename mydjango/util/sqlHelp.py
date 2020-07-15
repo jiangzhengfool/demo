@@ -25,4 +25,5 @@ def insert(sql, arg):
     cursor.execute(sql, arg)
     conn.commit()
     # cursor.close()
+    cursor.lastrowid
     # conn.close()

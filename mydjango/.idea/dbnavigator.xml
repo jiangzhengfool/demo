@@ -23,11 +23,15 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
-    <loaded-nodes />
+    <loaded-nodes>
+      <connection connection-id="29ccfbf0-3616-4ad6-a8cf-734107a4c2ba">
+        <schema name="db2" object-types="function, view, procedure, table" />
+      </connection>
+    </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="29ccfbf0-3616-4ad6-a8cf-734107a4c2ba">
-      <console name="Connection" type="STANDARD" schema="db2" session="Main"><![CDATA[create   table  stu 
+      <console name="Connection" type="STANDARD" schema="db2" session="Main">create   table  stu 
 (
     id int primary key,
     name  char(10),
@@ -42,7 +46,7 @@ create table class(
     name char(10)
     t_id int,
     s_id int
-);]]></console>
+);</console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">

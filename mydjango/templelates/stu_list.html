@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>student</title>
+</head>
+<body>
+    <div>
+        <div><a href="/add_stu">add student</a></div>
+        <table>
+            {% for s in studentlist %}
+            
+            <tr>
+                <td>{{ s.name }}</td>
+    <!--            <td>-->
+    <!--                <select name="classname" id="classname">-->
+    <!--                    <option value=""></option>-->
+    <!--                </select>-->
+    <!--            </td>-->
+                <td>{{s.clsname}}</td>
+                <td><a href="/add_stu?id={{s.id}}&cls_id={{ s.cls_id }}">editor</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    
+</body>
+</html>

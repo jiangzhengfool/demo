@@ -64,6 +64,7 @@ def get_stu_list(request):
     print('GET', request.GET)
     sql = 'select s.id,s.name ,c.id as cls_id ,c.name  as clsname from stu s inner join class c on c.id =s.cls_id '
     studentlist = sqlHelp.getList(sql)
+    print(1  in  studentlist)
     ret ={
         'studentlist':studentlist
     }
